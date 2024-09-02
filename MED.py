@@ -4,7 +4,6 @@
 
 # Streamlit UI
 import streamlit as st
-from distutils.core import setup
 
 st.set_page_config(page_title="Disease Predictor", layout="wide")
 
@@ -95,7 +94,8 @@ with col2:
 # Disclaimer
 st.markdown('---')
 st.caption(
-    'Disclaimer: This app is for educational purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment.')
+    'Disclaimer: This app is for educational purposes only. It is not a substitute for professional medical advice, '
+    'diagnosis, or treatment.')
 
 # Save the corrected code to a file
 with open('attractive_disease_prediction_app_v4.py', 'w') as f:
@@ -157,7 +157,7 @@ with col1:
     # Create input fields for each symptom, organized by category
     symptoms = {}
     for category, category_symptoms in symptom_categories.items():
-        st.subheader(category)
+        st.subhead(category)
         cols = st.columns(3)
         for i, symptom in enumerate(category_symptoms):
             symptoms[symptom] = cols[i % 3].checkbox(symptom)
@@ -175,7 +175,7 @@ with col2:
         st.success(f'Predicted Disease: **{prediction[0]}**')
 
         # Display top 3 most likely diseases
-        top_3_indices = prediction_proba[0].argsort()[-3:][::-1]
+        top_3_indices = prediction_proba[0].assort()[-3:][::-1]
         top_3_diseases = trained_model.classes_[top_3_indices]
         top_3_probabilities = prediction_proba[0][top_3_indices]
 
@@ -183,10 +183,10 @@ with col2:
         for disease, prob in zip(top_3_diseases, top_3_probabilities):
             st.write(f'- {disease}: {prob:.2%}')
 
-        st.warning('Remember: This prediction is based on a simplified model and should not be considered as medical advice.')
+        st.warning('Remember: This prediction is based on a simplified model and should not be considered as medical 
+        advice.')
 
 # Disclaimer
 st.markdown('---')
 st.caption('Disclaimer: This app is for educational purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment.')
 ''')
-

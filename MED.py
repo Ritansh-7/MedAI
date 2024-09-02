@@ -4,6 +4,7 @@
 
 # Streamlit UI
 import streamlit as st
+from distutils.core import setup
 
 st.set_page_config(page_title="Disease Predictor", layout="wide")
 
